@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment (contains JWT secret / DB credentials)
+.env
+
+# Demo-mode data file
+server/data/
+
+# Misc
+*.log
+.DS_Store

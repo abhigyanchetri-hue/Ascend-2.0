@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme variables ─────────────────────────────────────────────────────
+   Light values are Ascend's original palette, untouched. The .dark block
+   overrides the same variables with a warm, low-glare night palette.
+   Tailwind utilities (bg-card, text-ink, border-line…) read from here. */
+:root {
+  color-scheme: light; /* makes native date pickers & scrollbars match */
+  --c-background: 250 250 248; /* #FAFAF8 warm off-white */
+  --c-card: 255 255 255; /* #FFFFFF */
+  --c-ink: 45 45 45; /* #2D2D2D soft black */
+  --c-muted: 107 114 128; /* #6B7280 */
+  --c-line: 229 231 235; /* #E5E7EB */
+  --c-field: 209 213 219; /* #D1D5DB */
+  --c-track: 235 237 240; /* #EBEDF0 */
+  --c-hoverbg: 243 244 246; /* #F3F4F6 */
+  --c-forest: 74 124 89; /* #4A7C59 forest green */
+  --c-forest-dark: 62 106 75; /* #3E6A4B */
+  --c-forest-light: 237 243 238; /* #EDF3EE */
+  --c-warm: 212 165 116; /* #D4A574 warm amber */
+  --c-warm-light: 250 243 233; /* #FAF3E9 */
+  --c-warm-dark: 169 119 47; /* #A9772F */
+  --c-danger: 192 57 43; /* #C0392B muted red */
+  --c-danger-soft: 254 242 242; /* #FEF2F2 */
+  --c-heat-empty: 235 237 240; /* #EBEDF0 empty heatmap square */
+}
+
+.dark {
+  color-scheme: dark;
+  --c-background: 24 24 22; /* #181816 warm near-black */
+  --c-card: 33 33 30; /* #21211E */
+  --c-ink: 236 233 226; /* #ECE9E2 warm off-white text */
+  --c-muted: 163 160 150; /* #A3A096 */
+  --c-line: 58 58 52; /* #3A3A34 */
+  --c-field: 82 82 75; /* #524B45 */
+  --c-track: 49 49 45; /* #31312D */
+  --c-hoverbg: 42 42 38; /* #2A2A26 */
+  --c-forest: 94 147 112; /* #5E9370 slightly brighter for dark backgrounds */
+  --c-forest-dark: 82 130 98; /* #528262 */
+  --c-forest-light: 32 46 37; /* #202E25 dark green-tinted chip */
+  --c-warm: 212 165 116; /* #D4A574 (unchanged — reads well on dark) */
+  --c-warm-light: 51 41 29; /* #33291D */
+  --c-warm-dark: 224 181 132; /* #E0B584 brighter amber text */
+  --c-danger: 224 118 98; /* #E07662 */
+  --c-danger-soft: 56 34 30; /* #38221E */
+  --c-heat-empty: 49 49 45; /* #31312D */
+}
+
+body {
+  @apply bg-background text-ink font-sans antialiased;
+}
+
+/* Small "+20 EXP" text that floats up and fades when a task is completed.
+   Deliberately quiet — no confetti, no sound, just a gentle confirmation. */
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.exp-float {
+  animation: float-up 1s ease-out forwards;
+}
+
+/* The EXP progress bar fills smoothly when it changes. */
+.exp-bar-fill {
+  transition: width 300ms ease;
+}
