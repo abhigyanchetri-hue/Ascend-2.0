@@ -4,6 +4,7 @@
 > A clean, minimal gamified tracker that helps you build consistency in studying
 > and working out through daily tasks, long-term plans, and visual progress.
 > Built as an SIH prototype — calm, human, and functional. No neon, no gimmicks.
+> To use it, download the files, connect the backend and frontend using your coding space and then open the website :)
 
 ---
 
